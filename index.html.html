@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Rotina Semanal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #12001c, #3a0066, #7a00cc, #240046);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .shape {
+            position: fixed;
+            z-index: 0;
+            opacity: 0.5;
+            animation: fly3D 20s linear infinite;
+            pointer-events: none;
+        }
+
+        .sphere {
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, #d494ff, transparent 60%);
+            box-shadow: inset -10px -10px 20px rgba(0,0,0,0.5);
+        }
+
+        .cube {
+            background: rgba(153, 51, 255, 0.15);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(204, 153, 255, 0.4);
+        }
+
+        .pyramid {
+            width: 0; 
+            height: 0; 
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-bottom: 80px solid rgba(170, 0, 255, 0.5);
+        }
+
+        .shape1 { width: 120px; height: 120px; left: 10%; bottom: -150px; animation-duration: 15s; }
+        .shape2 { width: 90px; height: 90px; left: 40%; bottom: -100px; animation-duration: 22s; animation-delay: 2s; }
+        .shape3 { left: 70%; bottom: -100px; animation-duration: 18s; animation-delay: 5s; }
+        .shape4 { width: 150px; height: 150px; left: 85%; bottom: -200px; animation-duration: 25s; animation-delay: 1s; }
+        .shape5 { width: 60px; height: 60px; left: 25%; bottom: -80px; animation-duration: 12s; animation-delay: 4s; }
+
+        @keyframes fly3D {
+            0% { transform: translateY(100px) rotate(0deg); }
+            100% { transform: translateY(-120vh) rotate(360deg); }
+        }
+
+        header, .grid-container {
+            position: relative;
+            z-index: 10;
+        }
+
+        header {
+            text-align: center;
+            padding: 3rem 1rem 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            color: #e0b3ff;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            padding: 2rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            perspective: 1000px;
+        }
+
+        .card {
+            background: rgba(40, 0, 80, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(180, 100, 255, 0.5);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            z-index: 20;
+        }
+
+        .card:hover {
+            transform: translateY(-10px) rotateX(5deg) rotateY(-5deg);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+            border-color: rgba(200, 150, 255, 0.9);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .card h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #d494ff;
+        }
+
+        .card p {
+            font-size: 1rem;
+            color: #eeddff;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+    <div class="shape sphere shape1"></div>
+    <div class="shape cube shape2"></div>
+    <div class="shape pyramid shape3"></div>
+    <div class="shape sphere shape4"></div>
+    <div class="shape cube shape5"></div>
+
+    <header>
+        <h1>Minha Rotina Semanal</h1>
+        <p>Clique nos dias para ver as informações aprofundadas</p>
+    </header>
+
+    <main class="grid-container">
+        <div class="card" onclick="irParaPagina('segunda.html')">
+            <div class="card-icon">📅</div>
+            <h2>Segunda-feira</h2>
+            <p>Escola, limpeza da casa e PC.</p>
+        </div>
+        <div class="card" onclick="irParaPagina('terca.html')">
+            <div class="card-icon">🏐</div>
+            <h2>Terça-feira</h2>
+            <p>Escola, limpeza, treino e PC.</p>
+        </div>
+        <div class="card" onclick="irParaPagina('quarta.html')">
+            <div class="card-icon">📖</div>
+            <h2>Quarta-feira</h2>
+            <p>Escola, leitura e PC.</p>
+        </div>
+        <div class="card" onclick="irParaPagina('quinta.html')">
+            <div class="card-icon">🏐</div>
+            <h2>Quinta-feira</h2>
+            <p>Escola, treino e PC.</p>
+        </div>
+        <div class="card" onclick="irParaPagina('sexta.html')">
+            <div class="card-icon">🍕</div>
+            <h2>Sexta-feira</h2>
+            <p>Escola, lazer e PC.</p>
+        </div>
+        <div class="card" onclick="irParaPagina('sabado.html')">
+            <div class="card-icon">🏠</div>
+            <h2>Sábado</h2>
+            <p>Ficar em casa e PC.</p>
+        </div>
+        <div class="card" onclick="irParaPagina('domingo.html')">
+            <div class="card-icon">🎮</div>
+            <h2>Domingo</h2>
+            <p>Ficar em casa e relaxar.</p>
+        </div>
+    </main>
+
+    <script>
+        function irParaPagina(pagina) {
+            window.location.href = pagina;
+        }
+    </script>
+</body>
+</html>
