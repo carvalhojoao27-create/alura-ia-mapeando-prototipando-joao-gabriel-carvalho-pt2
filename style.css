@@ -1,0 +1,213 @@
+/* =========================================
+   RESET E CONFIGURAÇÕES GERAIS
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #12001c, #3a0066, #7a00cc, #240046);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: #fff;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    padding: 20px;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* =========================================
+   FORMAS GEOMÉTRICAS FLUTUANTES (FUNDO 3D)
+   ========================================= */
+.shape {
+    position: fixed;
+    z-index: 0;
+    opacity: 0.5;
+    animation: fly3D 20s linear infinite;
+    pointer-events: none;
+}
+
+.sphere {
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #d494ff, transparent 60%);
+    box-shadow: inset -10px -10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.cube {
+    background: rgba(153, 51, 255, 0.15);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(204, 153, 255, 0.4);
+}
+
+.pyramid {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 80px solid rgba(170, 0, 255, 0.5);
+}
+
+/* Posições e velocidades das formas */
+.shape1 {
+    width: 120px;
+    height: 120px;
+    left: 12%;
+    bottom: -150px;
+    animation-duration: 16s;
+}
+
+.shape2 {
+    width: 90px;
+    height: 90px;
+    left: 75%;
+    bottom: -100px;
+    animation-duration: 21s;
+    animation-delay: 2s;
+}
+
+.shape3 {
+    width: 70px;
+    height: 70px;
+    left: 45%;
+    bottom: -120px;
+    animation-duration: 19s;
+    animation-delay: 4s;
+}
+
+@keyframes fly3D {
+    0% { transform: translateY(100px) rotate(0deg); }
+    100% { transform: translateY(-120vh) rotate(360deg); }
+}
+
+/* =========================================
+   CARTÃO PRINCIPAL DAS PÁGINAS SECUNDÁRIAS
+   ========================================= */
+.page-content {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 40px;
+    background: rgba(40, 0, 80, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(180, 100, 255, 0.5);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    position: relative;
+    z-index: 10;
+    animation: fadeInCard 0.6s ease-out;
+}
+
+@keyframes fadeInCard {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.page-content h1 {
+    color: #d494ff;
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    text-align: center;
+    border-bottom: 2px solid rgba(180, 100, 255, 0.3);
+    padding-bottom: 15px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+.page-content p {
+    text-align: center;
+    color: #eeddff;
+    margin-bottom: 30px;
+    font-size: 1.15rem;
+    line-height: 1.5;
+}
+
+/* =========================================
+   LISTA DE TAREFAS / ROTINA
+   ========================================= */
+.page-content ul {
+    list-style: none;
+}
+
+.page-content li {
+    font-size: 1.15rem;
+    margin-bottom: 15px;
+    padding: 12px 15px 12px 35px;
+    position: relative;
+    color: #f3e6ff;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 10px;
+    border-left: 3px solid transparent;
+    transition: all 0.25s ease;
+}
+
+.page-content li:hover {
+    background: rgba(168, 85, 247, 0.15);
+    border-left: 3px solid #d494ff;
+    transform: translateX(5px);
+}
+
+.page-content li::before {
+    content: "➔";
+    position: absolute;
+    left: 12px;
+    color: #a855f7;
+    font-weight: bold;
+}
+
+/* =========================================
+   BOTÃO DE VOLTAR
+   ========================================= */
+.btn-voltar {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 25px;
+    padding: 10px 20px;
+    background: #7a00cc;
+    color: #fff;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 1px solid rgba(212, 148, 255, 0.3);
+    font-size: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.btn-voltar:hover {
+    background: #9933ff;
+    transform: translateX(-5px);
+    box-shadow: 0 6px 16px rgba(153, 51, 255, 0.5);
+}
+
+/* =========================================
+   RESPONSIVIDADE (TELEMÓVEIS)
+   ========================================= */
+@media (max-width: 600px) {
+    .page-content {
+        margin: 20px auto;
+        padding: 25px 20px;
+    }
+
+    .page-content h1 {
+        font-size: 1.7rem;
+    }
+
+    .page-content li {
+        font-size: 1.05rem;
+    }
+}
